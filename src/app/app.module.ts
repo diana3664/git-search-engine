@@ -7,12 +7,14 @@ import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 import { NgProgressModule } from '@ngx-progressbar/core';
+import { RepoRequestComponent } from './components/repo-request/repo-request.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    RepoRequestComponent
   ],
   imports: [
     BrowserModule,
