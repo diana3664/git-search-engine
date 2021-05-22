@@ -12,13 +12,17 @@ import {GitRequestService} from '../../git-http/git-request.service'
 export class HomeComponent implements OnInit {
 
 user:User;
+repos =[];
 
 constructor(private userRequest:GitRequestService){}
   
 
   ngOnInit() {
-    this.userRequest.userRequest();
-    this.user = this.userRequest.user
+    this.userRequest.userRequest("diana3664");
+    this.user = this.userRequest.user;
+
+    this.userRequest.repoRequest("diana3664");
+    this.repos=this.userRequest.repos;
 
 }
 }
