@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/git-hub/user';
+import {GitRequestService} from '../../git-http/git-request.service'
 
 
 @Component({
@@ -10,28 +11,14 @@ import { User } from 'src/app/git-hub/user';
 })
 export class HomeComponent implements OnInit {
 
-  user: User;
+user:User;
 
-  constructor(private http: HttpClient) { 
-    this.user = new User(0,"","",0,0,0)
-  }
+constructor(private userRequest:GitRequestService){}
+  
 
   ngOnInit() {
+    this.userRequest.userRequest();
+    this.user = this.userRequest.user
 
-    interface ApiResponse{
-      id : number;
-      name : string;
-      picture : string;
-      followers : number;
-      following : number;
-      repositories : number;
-
-    }
-
-    this.http.get<ApiResponse>("https://api.github.com/users/diana3664").subscribe(data => {
-
-    this.user = new User (data.id , data.name,data.picture,data.followers,data.following,data.repositories)
-    })
-  }
-
+}
 }
