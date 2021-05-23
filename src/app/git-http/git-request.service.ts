@@ -28,17 +28,17 @@ userRequest(username:string){
     // picture : string;
     followers : number;
     following : number;
-    repositories : number;
+    public_repos:number;
 
   }
   let promise = new Promise ((resolve, reject) => {
-    this.http.get<ApiResponse>(environment.apiUrl2a+username).toPromise().then(response=>{
+    this.http.get<ApiResponse>(`https://api.github.com/users/diana3664?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`).toPromise().then(response=>{
       this.user.id++;
       this.user.name = response.name;
       // this.user.picture = response.picture
       this.user.followers = response.followers;
       this.user.following = response.following;
-      this.user.repositories = response.repositories
+      this.user.repositories = response.public_repos
 
      resolve(response);
 
@@ -55,23 +55,27 @@ userRequest(username:string){
 repoRequest(username:string){
 
   interface ApiResponse2{
-    RepoName: string;
+    name: string;
+    description:string;
     language: number;
     // picture : string;
     fork: number
 
   }
   let promise = new Promise ((resolve, reject) => {
-    this.http.get<ApiResponse2>(environment.apiUrl2a+username).toPromise().then(response=>{
+    this.http.get<ApiResponse2>(`https://api.github.com/search/repositories?q=?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`).toPromise().then(response=>{
       for (let i=0; i< response["length"];i++){
-        let newRepo = new Repository("",0,0);
-        newRepo = response[i].RepoName;
+        let newRepo = new Repository("","",0,0);
+        newRepo.RepoName = response[i].name;
+        newRepo.description = response[i].description;
         newRepo.language = response[i].language;
-        newRepo.fork = response[i].fork;
+        newRepo.fork = response[i].forks;
         this.repos.push(newRepo);
 
       }
      resolve(response);
+console.log(response)
+   
 
     },error=>{
       reject(error);

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
- apiUrla:"https://api.github.com/users/",
+  apiUrla:"https://api.github.com/users/",
  apiUrlb: "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",
  apiUrl2a:"https://api.github.com/users/",
  apiUrl2b: "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",

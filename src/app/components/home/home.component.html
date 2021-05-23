@@ -1,9 +1,25 @@
 <ng-progress></ng-progress>
 
-<div>
-  <h4>Name: {{user?.name}}</h4>
-  <h4>Followers: {{user?.followers}}</h4>
-  <h4>Following: {{user?.following}}</h4>
-  <h4>repositories: {{user?.repositories}}</h4>
+<div class="container">
+  <div>
+    <h4>NAME: {{user?.name}}</h4>
+    <h4>FOLLOWERS: {{user?.followers}}</h4>
+    <h4>FOLLOWING: {{user?.following}}</h4>
+    <h4>REPOSITORIES: {{user?.repositories}}</h4>
+    <button class="btn btn-danger btn-lg" (click) ="showRepo()" type="button" name="button">View Repos</button>
 
+
+
+
+    <div class="row hidden" *ngIf="show == true">
+      <div *ngFor="let repo of repos"> 
+        <h3>Name: {{repo.name}}</h3>
+        <p>Language :{{repo.language}}</p>
+        <p>Forks :{{repo.fork}}</p>
+       </div>
+    </div>
+
+
+    
+  </div>
 </div>
