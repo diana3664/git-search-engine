@@ -12,11 +12,6 @@ export const environment = {
  apiUrl3b: "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",
 
 
-//  https://api.github.com/users/diana3664/repos
-// apiUrl3a:"https://api.github.com/search/repositories?q=",
-//  apiUrl2b: "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",
-
-
 };
 
 /*
