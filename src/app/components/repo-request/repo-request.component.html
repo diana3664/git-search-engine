@@ -1,10 +1,27 @@
 <div class="container">
-  <div class="row hidden" *ngIf="show == true">
-    <div *ngFor="let repo of repos"> 
-      <h3>Name: {{repo.name}}</h3>
-      <p>Description: {{repo.description}}</p>
-      <p>Language :{{repo.language}}</p>
-      <p>Forks :{{repo.fork}}</p>
-     </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <h1>Search Repository</h1>
+      <div class="form-group">
+        <label for="name">Repository Name:</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="repoName" name="name" #name="ngModel" required>
+        <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+          <p> Repository Name is Required</p>
+        </div>
+      </div>
+      <button type="Submit" class="btn btn-primary btn-lg" (click)=showRepository() [disabled]="repoName==''">SEARCH</button>
+      
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <div class="row hidden" *ngIf="show === true">
+      <div *ngFor="let repo of repositories" class="col-md-3 repoColumn">
+      <p>Name:<span>{{repo.repoName}}</span> </p>
+      <p>Description:{{repo.description}}</p>
+      <p>Language:{{repo.language}}</p>
+      <p>Forks:{{repo.forks}}</p>
+      <p>Go to the github repository:<a href="{{repo.url}}">Click Here</a></p>
+    </div>
   </div>
 </div>

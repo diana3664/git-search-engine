@@ -86,4 +86,30 @@ export class GitRequestService {
     })
     return promise;
   }
+  repoNameRequest(reponame:string){
+    interface ApiResponse3{
+     name:string;
+     description:string;
+     language:string;
+     forks:number;
+     html_url:string;
+     items;
+   }
+   let promise = new Promise((resolve,reject)=>{
+     this.http.get<ApiResponse3>(environment.apiUrl3a+reponame+environment.apiUrl3b).toPromise().then(response=>{
+       for(let i=0;i<response.items["length"];i++){
+        let newRepo = new Repository(0,"", "", 0, 0);
+        newRepo.repoId = i+1;
+         newRepo.description = response.items[i].description;
+         newRepo.language = response.items[i].language;
+         newRepo.forks = response.items[i].forks;
+         this.repositories.push(newRepo);
+       }
+       resolve(response);
+     },error=>{
+       reject(error);
+     })
+   })
+   return promise;
+  }
 }
