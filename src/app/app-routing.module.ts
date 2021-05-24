@@ -8,7 +8,7 @@ import { RepoRequestComponent } from './components/repo-request/repo-request.com
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'repo-request', component: RepoRequestComponent},
-
+ {path : '',redirectTo:'/home',pathMatch:'full'}
  
 ];
 
