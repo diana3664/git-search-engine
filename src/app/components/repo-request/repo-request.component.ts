@@ -33,7 +33,9 @@ export class RepoRequestComponent implements OnInit {
 
   constructor(private userRequest:GitRequestService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+
+
   }
 
 }

@@ -59,16 +59,17 @@ export class GitRequestService {
       name: string;
       description: string;
       language: number;
-      // picture : string;
+      avatar_url : string;
       forks: number
 
     }
     let promise = new Promise((resolve, reject) => {
       this.http.get<ApiResponse2>(environment.apiUrl2a+username+environment.apiUrl2b).toPromise().then(response => {
         for (let i = 0; i < response["length"]; i++) {
-          let newRepo = new Repository(0,"", "", 0, 0);
+          let newRepo = new Repository(0,"","", "", 0, 0);
           newRepo.repoId = i+1;
           newRepo.RepoName = response[i].name;
+          newRepo.picture = response[i].avatar_url;
           newRepo.description = response[i].description;
           newRepo.language = response[i].language;
           newRepo.forks = response[i].forks;
@@ -91,6 +92,7 @@ export class GitRequestService {
      name:string;
      description:string;
      language:string;
+     avatar_url : string;
      forks:number;
      html_url:string;
      items;
@@ -98,8 +100,10 @@ export class GitRequestService {
    let promise = new Promise((resolve,reject)=>{
      this.http.get<ApiResponse3>(environment.apiUrl3a+reponame+environment.apiUrl3b).toPromise().then(response=>{
        for(let i=0;i<response.items["length"];i++){
-        let newRepo = new Repository(0,"", "", 0, 0);
+        let newRepo = new Repository(0,"","", "", 0, 0);
         newRepo.repoId = i+1;
+        newRepo.RepoName = response[i].name;
+        newRepo.picture = response[i].avatar_url;
          newRepo.description = response.items[i].description;
          newRepo.language = response.items[i].language;
          newRepo.forks = response.items[i].forks;

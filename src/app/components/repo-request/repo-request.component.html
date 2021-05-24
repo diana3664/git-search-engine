@@ -8,33 +8,14 @@
       <h1>Search User</h1>
       <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" class="form-control" id="name" [(ngModel)]="userName" name="name" #name="ngModel" required>
+        <input type="text" class="form-control" id="name" [(ngModel)]="userName" name="name" #name="ngModel" placeholder="Enter username..." required>
         <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
           <p> Name is Required</p>
         </div>
       </div>
-      <button type="Submit" class="btn btn-primary btn-lg" (click)=showUser() [disabled]="userName==''">SEARCH</button>
+      <button type="Submit" class="btn btn-danger btn-lg button" (click)=showUser() (click)="showRepo()"  [disabled]="userName==''" placeholder="Enter username">SEARCH</button>
     </div>
-    <div class="row style">
-  
-      <!-- first col -->
-      <div class="pic col-md-12" >
-        <img id="pic" src="{{user?.picture}}" alt="profile picture">
-      </div>
-  
-  
-      <!-- second col -->
-     <div class="col-md-6 user">
-      <h4>NAME: {{user?.name}}</h4>
-      <h4>FOLLOWERS: {{user?.followers}}</h4>
-      <h4>FOLLOWING: {{user?.following}}</h4>
-      <h4>REPOSITORIES: {{user?.repositories}}</h4>
-      <button class="btn btn-danger btn-lg" (click)="showRepo()" type="button" name="button">View Repos</button>
-      
-     </div>
-    </div>
-  
-  
+    
     <div class="row hidden" *ngIf="show == true">
       <div *ngFor="let repo of repos" class="repos">
         <p><span>Description: </span>{{repo.description}}</p>
