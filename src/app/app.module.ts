@@ -9,7 +9,6 @@ import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { RepoRequestComponent } from './components/repo-request/repo-request.component';
 import { FormsModule } from '@angular/forms';
-import { ReposComponent } from './components/repos/repos.component';
 
 RepoRequestComponent
 
@@ -19,7 +18,6 @@ RepoRequestComponent
     AppComponent,
     HomeComponent,
     RepoRequestComponent,
-    ReposComponent
   ],
   imports: [
     BrowserModule,

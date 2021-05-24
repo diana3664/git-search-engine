@@ -4,7 +4,6 @@ import { User } from 'src/app/git-hub/user';
 import { Repository } from 'src/app/repository';
 import {GitRequestService} from '../../git-http/git-request.service'
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
