@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
-
+.navbar-nav{
+  margin-left: 60%;
+}
+/* .main-image{
+  background-image: url("./assets/github-social.png");
+  object-fit: cover !important;
+} */
