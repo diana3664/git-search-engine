@@ -32,8 +32,9 @@ export class GitRequestService {
       public_repos: number;
 
     }
+    let urlUser = "https://api.github.com/users/"+ username
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiResponse>(environment.apiUrla+username).toPromise().then(response => {
+      this.http.get<ApiResponse>('https://api.github.com/users/'+username).toPromise().then(response => {
         this.user.id++;
         this.user.name = response.name;
         this.user.picture = response.avatar_url;
@@ -65,7 +66,7 @@ export class GitRequestService {
 
     }
     let promise = new Promise((resolve, reject) => {
-      this.http.get<ApiResponse2>(environment.apiUrl2a+username+environment.apiUrl2b).toPromise().then(response => {
+      this.http.get<ApiResponse2>('https://api.github.com/users/'+username+"/repos?order=created&sort=asc?access_token="+environment).toPromise().then(response => {
         for (let i = 0; i < response["length"]; i++) {
           let newRepo = new Repository(0,"","", "", 0, 0);
           newRepo.repoId = i+1;
@@ -99,7 +100,7 @@ export class GitRequestService {
      items;
    }
    let promise = new Promise((resolve,reject)=>{
-     this.http.get<ApiResponse3>(environment.apiUrl3a+reponame+environment.apiUrl3b).toPromise().then(response=>{
+     this.http.get<ApiResponse3>(`https://api.github.com/search/repositories?q=`+reponame).toPromise().then(response=>{
        for(let i=0;i<response.items["length"];i++){
         let newRepo = new Repository(0,"","", "", 0, 0);
         newRepo.repoId = i+1;

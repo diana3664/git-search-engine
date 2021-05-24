@@ -16,9 +16,11 @@
       <button type="Submit" class="btn btn-danger btn-lg button" (click)=showUser() (click)="showRepo()"  [disabled]="userName==''" placeholder="Enter username">SEARCH</button>
     </div>
     
+
+
     <br>
     <label for="name"><b>Repositories:</b></label>
-<br>
+      <br>
     
     <div class="row hidden" *ngIf="show == true">
       <div *ngFor="let repo of repos" class="repos">
