@@ -25,7 +25,7 @@ export class GitRequestService {
     interface ApiResponse {
       id: number;
       name: string;
-      // picture : string;
+      avatar_url : string;
       followers: number;
       following: number;
       public_repos: number;
@@ -35,7 +35,7 @@ export class GitRequestService {
       this.http.get<ApiResponse>(environment.apiUrla+username).toPromise().then(response => {
         this.user.id++;
         this.user.name = response.name;
-        // this.user.picture = response.picture
+        this.user.picture = response.avatar_url;
         this.user.followers = response.followers;
         this.user.following = response.following;
         this.user.repositories = response.public_repos
