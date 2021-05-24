@@ -8,6 +8,9 @@ import { HomeComponent } from './components/home/home.component';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
 import { NgProgressModule } from '@ngx-progressbar/core';
 import { RepoRequestComponent } from './components/repo-request/repo-request.component';
+import { FormsModule } from '@angular/forms';
+
+RepoRequestComponent
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { RepoRequestComponent } from './components/repo-request/repo-request.com
     AppRoutingModule,
     HttpClientModule,
     NgProgressModule.forRoot(),
-    NgProgressHttpClientModule
+    NgProgressHttpClientModule,
+    FormsModule
 
 
   ],
