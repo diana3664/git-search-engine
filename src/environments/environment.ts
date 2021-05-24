@@ -7,12 +7,14 @@ export const environment = {
   apiUrla:"https://api.github.com/users/",
  apiUrlb: "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",
  apiUrl2a:"https://api.github.com/users/",
- apiUrl2b: "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",
+ apiUrl2b:"/repos?access_token=7ebeb8db458514242f510ba7d931de85fc82419c",
  apiUrl3a:"https://api.github.com/search/repositories?q=",
  apiUrl3b: "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",
 
 
-
+//  https://api.github.com/users/diana3664/repos
+// apiUrl3a:"https://api.github.com/search/repositories?q=",
+//  apiUrl2b: "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",
 
 
 };

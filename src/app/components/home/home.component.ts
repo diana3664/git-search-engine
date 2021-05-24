@@ -19,7 +19,7 @@ repositories =[];
 
 
 show = false;
-constructor(private userRequest:GitRequestService){}
+constructor(private userRequest:GitRequestService, private http: HttpClient){}
 showRepo(){
   this.show = true;
 }  

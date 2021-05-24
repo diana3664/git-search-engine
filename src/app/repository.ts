@@ -1,4 +1,4 @@
 export class Repository {
-  constructor(public RepoName: string,public description:string ,public language: number, public fork: number){}
+  constructor(public repoId: number,public RepoName: string,public description:string ,public language: number, public forks: number){}
 
 }
